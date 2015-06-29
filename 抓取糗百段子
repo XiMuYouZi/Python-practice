@@ -1,0 +1,28 @@
+__author__ = 'Mia'
+#coding=utf-8
+import requests
+from bs4 import BeautifulSoup
+
+page=0
+
+#抓取糗事百科前十页的段子
+while page<10:
+    page+=1
+    url='http://www.qiushibaike.com/text/page/%d?s=4785229' %page
+    request=requests.get(url=url)
+    soup=BeautifulSoup(request.text)
+
+    for item in soup.select('.mb15'):
+        if item.select('.author'): #如果有class=author，说明是有作者的，就输出作者名字
+            print  u'作者:'+item.select('.author')[0].text.strip(), '\n', u'段子内容:'+item.select('.content')[0].text.strip(),'\n'\
+                u'评论数:'+item.select('.number')[1].text, '\n', u'点赞数:'+item.select('.number')[0].text
+            print ' '
+        else:#如果没有class=author，就说明是匿名用户
+            print  u'作者是:匿名用户''\n', item.select('.content')[0].text.strip(),'\n', u'点赞:'+item.select('.number')[0].text
+            print ' '
+
+
+
+
+
+
