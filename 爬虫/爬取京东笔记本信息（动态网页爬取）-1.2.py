@@ -1,3 +1,6 @@
+'''
+这个方法比较成熟稳定，可以快速自动的抓取多个网页，不会崩溃和出现timeout的情况，建议把timeout时间设置到5
+'''
 #coding=utf-8
 import spynner
 import pyquery
