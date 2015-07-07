@@ -4,6 +4,7 @@ import pyquery
 import time
 from bs4 import BeautifulSoup
 
+#sdsd
 url1='http://list.jd.com/list.html?cat=670%2C671%2C672&page='+'%d&JL=6_0_0'%i
 browser = spynner.Browser()
 browser.create_webview()
