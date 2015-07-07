@@ -1,3 +1,6 @@
+'''
+此方法不稳定，会出现崩溃、timeout等问题，而且无法循环抓取
+'''
 #coding=utf-8
 import spynner
 import pyquery
