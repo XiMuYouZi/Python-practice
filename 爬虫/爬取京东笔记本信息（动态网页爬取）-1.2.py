@@ -1,11 +1,12 @@
-'''
-这个方法比较成熟稳定，可以快速自动的抓取多个网页，不会崩溃和出现timeout的情况，建议把timeout时间设置到5
-'''
+
 #coding=utf-8
 import spynner
 import pyquery
 from bs4 import  BeautifulSoup
 
+'''
+这个方法比较成熟稳定，可以快速自动的抓取多个网页，不会崩溃和出现timeout的情况，建议把timeout时间设置到5
+'''
 jd_goods_info=open('jd_goods_info.txt','a+')
 
 #抓取淘宝笔记本分类前十页的信息
@@ -26,16 +27,17 @@ while i<10:
  soup1=soup.select('.j-sku-item')
  for item in soup1:
   #因为一次打印出所有信息出来的结果是tuple，无法转换编码，而分次打印出来信息然后合并出来的是unicode编码，最转换到str类型保存到文件
-  price= u'价格：'+item.select('strong')[0].text+'   '
-  modle=u'型号：'+ item.select('em')[1].text+'   '
-  goods_link=u'商品链接：'+item.a['href']+'   '
-  comments=u'评论数：'+item.select('a')[2].text
-  jd_goods= price+modle+goods_link+comments
+    price= u'价格：'+item.select('strong')[0].text+'   '
+    modle=u'型号：'+ item.select('em')[1].text+'   '
+    goods_link=u'商品链接：'+item.a['href']+'   '
+    # browser.download(item.a['href'])
+    comments=u'评论数：'+item.select('a')[2].text
+    jd_goods= price+modle+goods_link+comments
   # 循环分行写入笔记本的电脑信息
-  for jd_good  in jd_goods:
-     jd_goods_info.write(jd_goods.encode('utf-8'))
-     jd_goods_info.write('\n')
-     break
+    for jd_good  in jd_goods:
+       jd_goods_info.write(jd_goods.encode('utf-8'))
+       jd_goods_info.write('\n')
+       break
 
 jd_goods_info.close()
 
