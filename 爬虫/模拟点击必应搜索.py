@@ -19,8 +19,8 @@ br.load('http://cn.bing.com/')
 br.create_webview()
 br.show()
 
-br.wk_fill('input[id=sb_form_q]', 'python')
-br.wk_click("input[id=sb_form_go]", wait_load=True, timeout=20)
+br.wk_fill('input[id=sb_form_q]', 'python')  #在搜索框中输入python
+br.wk_click("input[id=sb_form_go]", wait_load=True, timeout=20)   #模拟点击搜索按钮
 br.snapshot().save('example.png')   #保存点击之后的网页为图片
 request=requests.get(url=br.url)
 soup=BeautifulSoup( request.text)
