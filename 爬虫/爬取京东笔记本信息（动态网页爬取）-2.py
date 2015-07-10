@@ -7,7 +7,7 @@ from bs4 import  BeautifulSoup
 '''
 这个方法比较成熟稳定，可以快速自动的抓取多个网页，不会崩溃和出现timeout的情况，建议把timeout时间设置到5
 '''
-jd_goods_info=open('jd_goods_info.txt','a+')
+jd_goods_info=open('jd_goods.txt','a+')
 
 #抓取淘宝笔记本分类前十页的信息
 i=0
@@ -18,7 +18,7 @@ while i<10:
  browser.create_webview()
  browser.set_html_parser(pyquery.PyQuery)
  browser.load(url1)
- browser.wait(30)
+ browser.wait(5)
 
  browser.soup.make_links_absolute(base_url=browser.url)
  taobao_html=browser.soup('html').html() #因为html元素是整个网页的开头和结尾，所以使用html元素把整个网页全部保存下来
