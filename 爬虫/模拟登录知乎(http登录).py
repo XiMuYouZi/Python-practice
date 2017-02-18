@@ -7,8 +7,8 @@ session=requests.session()
 url='http://www.zhihu.com/login/email'
 #请求数据包里面的form data，也就是post到服务器上的数据，必须放到构造的post请求里面，可以看到这里面有用户名和密码
 login_data={
-            'email':'476301176@qq.com',
-            'password':'ws1399593613210'
+            'email':'476333301176@qq.com',
+            'password':'ws1www3995210'
             }
 
 #构造用于获取登录后主页的http header，由于知乎主页是在用户登陆之后才会呈现出来，所以要用到用户的登录信息，可以使用header里面报考的referer和cookie来实现
